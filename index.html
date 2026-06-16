@@ -6,20 +6,22 @@
   <title>Ahmed Jutt Services</title>
   <style>
     body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #0f172a 0%, #0d3b3b 100%)   color: white;
-  text-align: center;
-  padding: 30px;
-    }
-    h1 { color: #38bdf8; }
-    .price-card {
-      background: #1e293b;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 15px auto;
-      width: 280px;
-      box-shadow: 0 0 15px rgba(56,189,248,0.3);
-    }
+.vip {
+  border: 2px solid #a855f7;
+  box-shadow: 0 0 25px #a855f7, 0 0 50px #a855f7;
+  transform: scale(1.05);
+}
+.badge {
+  background: linear-gradient(45deg, #a855f7, #ec4899);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: -10px;
+  right: 20px;
+}
+.price-card { position: relative; }
     .price {
       font-size: 28px;
       font-weight: bold;
@@ -37,18 +39,75 @@
       font-weight: bold;
     }
     .order-btn:hover { background: #20b954; }
-  </style>
+  .orders-section { padding: 60px 20px; text-align: center; }
+.orders-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.order-card { background: #1e293b; padding: 20px; border-radius: 12px; width: 280px; border: 2px solid; }
+.order-card.pending { border-color: #fbbf24; }
+.order-card.success { border-color: #22c55e; }
+.status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+.pending .status-badge { background: #fbbf24; color: #000; }
+.success .status-badge { background: #22c55e; color: #fff; }
+  .whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+ 0% { transform: scale(1); }
+ 50% { transform: scale(1.1); }
+ 100% { transform: scale(1); }
+}
+</style>
 </head>
 <body>
   <h1>Ahmed Jutt Services 🔥</h1>
   <p>100% Real + Fast Delivery</p>
+<!-- Price Calculator -->
+<div class="calc-box">
+  <h3>Price Calculator</h3>
+  <input type="number" id="views" placeholder="Views likho" onkeyup="calcPrice()">
+  <p>Price: Rs <span id="result">0</span></p>
+</div>
 
+<script>
+function calcPrice() {
+  let v = document.getElementById('views').value;
+  document.getElementById('result').innerText = v * 0.003;
+}.
+calc-box { background: #1e293b; padding: 20px; border-radius: 12px; text-align: center; margin: 30px auto; max-width: 300px; }
+.calc-box input { width: 80%; padding: 10px; border-radius: 8px; border: none; margin: 10px 0; }
+</script>
   <div class="price-card">
     <h3>Instagram Likes</h3>
     <p class="price">Rs 100<span>/1000 Likes</span></p>
     <p>Start time: 5-10 min</p>
     <a href="https://wa.me/923436127331" class="order-btn">Order Now</a>
   </div>
+  
+  <div class="price-card">
+  <h3>Instagram Views</h3>
+  <div class="price">Rs 3<span>/1000 Views</span></div>
+  <ul>
+    <li>✓ Fast Delivery</li>
+    <li>✓ No Password Needed</li>
+    <li>✓ 24/7 Support</li>
+  </ul>
+  <a href="https://wa.me/923436127331" class="btn">Order on WhatsApp</a>
+</div>
 
   <div class="price-card">
     <h3>TikTok Likes</h3>
@@ -68,7 +127,7 @@
     <h3>TikTok Followers</h3>
     <p class="price">Rs 620<span>/1000 Followers</span></p>
     <p>Start time: 1-2 hour</p>
-    <a href="https://wa.me/923001234567" class="order-btn">Order Now</a>
+    <a href="https://wa.me/923436127331" class="order-btn">Order Now</a>
   </div>
 
   <div class="price-card">
@@ -77,6 +136,53 @@
     <p>Start time: 1-2 hour</p>
     <a href="https://wa.me/923436127331" class="order-btn">Order Now</a>
   </div>
+  <div class="price-card vip">
+  <div class="badge">HOT</div>
+  <h3>UK TikTok Account</h3>
+  <div class="price">Rs 300<span>/Account</span></div>
+  <ul>
+    <li>✓ UK Region Verified</li>
+    <li>✓ Monetization Ready</li>
+    <li>✓ Instant Delivery</li>
+    <li>✓ 24/7 Support</li>
+  </ul>
+  <a href="https://wa.me/923436127331" class="btn">Buy on WhatsApp</a>
+</div>
+  <div class="price-card">
+  <h3>WhatsApp Channel Followers</h3>
+  <div class="price">Deal on WhatsApp</div>
+  <ul>
+    <li>✓ Real Followers</li>
+    <li>✓ Custom Packages</li>
+    <li>✓ Lifetime Support</li>
+  </ul>
+  <a href="https://wa.me/923436127331" class="btn">Get Deal on WhatsApp</a>
+</div>
+  <!-- Orders Status Section -->
+<section id="orders" class="orders-section">
+  <h2>Order Status</h2>
+  <div class="orders-container">
+    
+    <div class="order-card pending">
+      <div class="status-badge">PENDING</div>
+      <h3>Instagram Views</h3>
+      <p>100K Views - Order #1245</p>
+      <span>Processing... 2-4 Hours</span>
+    </div>
+
+    <div class="order-card success">
+      <div class="status-badge">SUCCESS</div>
+      <h3>UK TikTok Account</h3>
+      <p>Rs 300 - Order #1244</p>
+      <span>Delivered ✓</span>
+    </div>
+
+  </div>
+</section>
+<!-- Sticky WhatsApp Button -->
+<a href="https://wa.me/923436127331?text=Assalamualaikum+Bhai" class="whatsapp-float" target="_blank">
+  💬
+</a>  
 
 </body>
 </html>
