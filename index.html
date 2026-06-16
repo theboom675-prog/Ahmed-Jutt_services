@@ -1,76 +1,321 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Jutt Services</title>
-  <style>
-    body {
-.vip {
-  border: 2px solid #a855f7;
-  box-shadow: 0 0 25px #a855f7, 0 0 50px #a855f7;
-  transform: scale(1.05);
-}
-.badge {
-  background: linear-gradient(45deg, #a855f7, #ec4899);
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  position: absolute;
-  top: -10px;
-  right: 20px;
-}
-.price-card { position: relative; }
-    .price {
-      font-size: 28px;
-      font-weight: bold;
-      color: #22c55e;
-    }
-    .price span { font-size: 14px; color: #94a3b8; }
-    .order-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #25D366;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .order-btn:hover { background: #20b954; }
-  .orders-section { padding: 60px 20px; text-align: center; }
-.orders-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-.order-card { background: #1e293b; padding: 20px; border-radius: 12px; width: 280px; border: 2px solid; }
-.order-card.pending { border-color: #fbbf24; }
-.order-card.success { border-color: #22c55e; }
-.status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-.pending .status-badge { background: #fbbf24; color: #000; }
-.success .status-badge { background: #22c55e; color: #fff; }
-  .whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 25px;
-  right: 25px;
-  background-color: #25D366;
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
- 0% { transform: scale(1); }
- 50% { transform: scale(1.1); }
- 100% { transform: scale(1); }
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ PRO PANEL - VIP SMM Services</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151b2c;
+            --accent-color: #00f2fe;
+            --text-color: #ffffff;
+            --text-muted: #8492a6;
+            --gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(21, 27, 44, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-vip {
+            background: var(--gradient);
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-vip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px 20px;
+            background: radial-gradient(circle at top, rgba(0, 242, 254, 0.1) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 40px 8%;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Pricing / Services Section */
+        .pricing-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .price-card.vip-tag::before {
+            content: "POPULAR";
+            position: absolute;
+            top: 25px;
+            right: -35px;
+            background: var(--gradient);
+            color: #000;
+            transform: rotate(45deg);
+            padding: 5px 40px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .price-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .price-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-card ul li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .price-card ul li::before {
+            content: "✓ ";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">AJ PRO PANEL</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">API</a>
+            <a href="https://wa.me/your-number" class="btn-vip" target="_blank">Contact VIP</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Boost Your Brand with <span>VIP SMM Services</span></h1>
+        <p>Get instant, high-quality, and non-drop engagement for TikTok, Instagram, YouTube, and more. Super fast delivery guaranteed.</p>
+        <a href="#" class="btn-vip" style="padding: 15px 40px; font-size: 18px;">Get Started Now</a>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>⚡ Instant Delivery</h3>
+            <p>Our automated systems process your orders within seconds after placement.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🔒 Safe & Secure</h3>
+            <p>100% secure payment gateways and completely safe growth methods.</p>
+        </div>
+        <div class="feature-card">
+            <h3>💬 24/7 VIP Support</h3>
+            <p>Dedicated customer service directly via WhatsApp for elite clients.</p>
+        </div>
+    </section>
+
+    <!-- Pricing / Services -->
+    <section class="pricing-section">
+        <h2>Our Premium Services</h2>
+        <div class="pricing-grid">
+            <!-- Card 1 -->
+            <div class="price-card">
+                <h3>TikTok Growth</h3>
+                <div class="price">$1.50 <span>/ per 1K</span></div>
+                <ul>
+                    <li>Real & Active Profiles</li>
+                    <li>High Retention Views</li>
+                    <li>Instant Start (0-5 min)</li>
+                    <li>30 Days Refill Guarantee</li>
+                </ul>
+                <a href="#" class="btn-vip" style="display: block;">Order Now</a>
+            </div>
+
+            <!-- Card 2 (VIP) -->
+            <div class="price-card vip-tag">
+                <h3>Instagram Premium</h3>
+                <div class="price">$2.10 <span>/ per 1K</span></div>
+                <ul>
+                    <li>HQ Non-Drop Followers</li>
+                    <li>Organic Look Profiles</li>
+                    <li>Instant Delivery Speed</li>
+                    <li>Lifetime Auto-Refill</li>
+                </ul>
+                <a href="#" class="btn-vip" style="display: block;">Order Now</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="price-card">
+                <h3>YouTube Monetization</h3>
+                <div class="price">$8.50 <span>/ per 1K</span></div>
+                <ul>
+                    <li>Real Watch Time Hours</li>
+                    <li>Safe for Monetization</li>
+                    <li>Gradual/Natural Speed</li>
+                    <li>No Drop Guarantee</li>
+                </ul>
+                <a href="#" class="btn-vip" style="display: block;">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AJ PRO PANEL. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
 </style>
 </head>
 <body>
