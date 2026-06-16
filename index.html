@@ -1,4 +1,451 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHMED JUTT SERVICES | VIP SMM PANEL</title>
+    <style>
+        :root {
+            --bg-dark: #070a13;
+            --card-bg: #0f1424;
+            --neon-cyan: #00f2fe;
+            --neon-purple: #9b51e0;
+            --text-main: #ffffff;
+            --text-muted: #707e94;
+            --vip-gradient: linear-gradient(135deg, #00f2fe 0%, #9b51e0 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- TOP MODERN TITLE BAR --- */
+        .top-title-bar {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(180deg, rgba(155, 81, 224, 0.15) 0%, transparent 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .top-title-bar h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--vip-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+        }
+
+        .top-title-bar p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 5px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- VIP ORDER FORM (Left Side) --- */
+        .order-box {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .order-box::before {
+            content: 'VIP PANEL';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+            border: 1px solid var(--neon-cyan);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .order-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 14px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .form-group select:focus, .form-group input:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .panel-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .detail-item {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .detail-item span {
+            display: block;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 2px;
+        }
+
+        .total-price-box {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(0, 242, 254, 0.1), rgba(155, 81, 224, 0.1));
+            border-left: 4px solid var(--neon-cyan);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-price-box span {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+        }
+
+        .btn-order {
+            width: 100%;
+            padding: 16px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 12px;
+            background: var(--vip-gradient);
+            color: #000;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
+        }
+
+        /* --- LIVE DEALS CARDS (Right Side) --- */
+        .deals-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .deals-container h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .deal-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .deal-card:hover {
+            border-color: var(--neon-purple);
+            transform: translateX(5px);
+        }
+
+        .deal-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Platform Custom Colors */
+        .tiktok-icon { background: linear-gradient(45deg, #ff0050, #00f2fe); color: #fff; }
+        .fb-icon { background: #1877f2; color: #fff; }
+        .insta-icon { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; }
+
+        .deal-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .deal-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .deal-price {
+            text-align: right;
+        }
+
+        .deal-price .amount {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            display: block;
+        }
+
+        .deal-price .per-k {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP MODERN MAIN TITLE -->
+    <div class="top-title-bar">
+        <h1>Ahmed Jutt Services</h1>
+        <p>Premium SMM & Promotion Hub</p>
+    </div>
+
+    <!-- MAIN BODY SECTION -->
+    <div class="container">
+        
+        <!-- LEFT: AUTOMATED ORDER FORM -->
+        <div class="order-box">
+            <h2>Place VIP Order</h2>
+            
+            <form id="smmForm">
+                <!-- Category Select -->
+                <div class="form-group">
+                    <label>Select Platform</label>
+                    <select id="category" onchange="updateServiceDetails()">
+                        <option value="tiktok_followers" data-price="1.50" data-min="100" data-max="500000">TikTok Premium Followers (Non-Drop)</option>
+                        <option value="tiktok_likes" data-price="0.80" data-min="100" data-max="1000000">TikTok Active Likes</option>
+                        <option value="fb_followers" data-price="2.10" data-min="500" data-max="200000">Facebook Page Followers / Likes</option>
+                        <option value="insta_followers" data-price="1.20" data-min="100" data-max="300000">Instagram VIP HQ Followers</option>
+                        <option value="insta_likes" data-price="0.40" data-min="50" data-max="500000">Instagram Super Fast Likes</option>
+                    </select>
+                </div>
+
+                <!-- Target Link -->
+                <div class="form-group">
+                    <label>Target Link / URL</label>
+                    <input type="url" placeholder="https://www.tiktok.com/@username/..." required>
+                </div>
+
+                <!-- Quantity Box -->
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" id="quantity" value="1000" min="50" oninput="calculateTotalPrice()" required>
+                </div>
+
+                <!-- Dynamic Min/Max & Price Info -->
+                <div class="panel-details">
+                    <div class="detail-item">Min Order <span id="minLimit">100</span></div>
+                    <div class="detail-item">Max Order <span id="maxLimit">500,000</span></div>
+                    <div class="detail-item">Price Per 1K <span id="pricePerK">$1.50</span></div>
+                    <div class="detail-item">Delivery Speed <span>Instant / VIP</span></div>
+                </div>
+
+                <!-- Total Cost Display -->
+                <div class="total-price-box">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Total Charge:</p>
+                    <span id="totalCost">$1.50</span>
+                </div>
+
+                <button type="submit" class="btn-order">Submit VIP Order</button>
+            </form>
+        </div>
+
+        <!-- RIGHT: LIVE EXCLUSIVE DEALS -->
+        <div class="deals-container">
+            <div>
+                <h2>Today's Hot Deals</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Best quality non-drop services at elite rates.</p>
+            </div>
+
+            <!-- TikTok Deal -->
+            <div class="deal-card">
+                <div class="deal-info">
+                    <div class="platform-icon tiktok-icon">🎵</div>
+                    <div class="deal-text">
+                        <h3>TikTok Non-Drop Followers</h3>
+                        <p>Real profiles, 0-5 min start time</p>
+                    </div>
+                </div>
+                <div class="deal-price">
+                    <!-- Price Aap apne mutabiq yahan change kar lena -->
+                    <span class="amount">$1.50</span>
+                    <span class="per-k">per 1000</span>
+                </div>
+            </div>
+
+            <!-- Instagram Deal -->
+            <div class="deal-card">
+                <div class="deal-info">
+                    <div class="platform-icon insta-icon">📸</div>
+                    <div class="deal-text">
+                        <h3>Instagram VIP Followers</h3>
+                        <p>Lifetime auto-refill, organic look</p>
+                    </div>
+                </div>
+                <div class="deal-price">
+                    <span class="amount">$1.20</span>
+                    <span class="per-k">per 1000</span>
+                </div>
+            </div>
+
+            <!-- Facebook Deal -->
+            <div class="deal-card">
+                <div class="deal-info">
+                    <div class="platform-icon fb-icon">👍</div>
+                    <div class="deal-text">
+                        <h3>Facebook Page Likes/Followers</h3>
+                        <p>Secure setup, monetization safe</p>
+                    </div>
+                </div>
+                <div class="deal-price">
+                    <span class="amount">$2.10</span>
+                    <span class="per-k">per 1000</span>
+                </div>
+            </div>
+
+            <!-- TikTok Likes Deal -->
+            <div class="deal-card">
+                <div class="deal-info">
+                    <div class="platform-icon tiktok-icon">❤️</div>
+                    <div class="deal-text">
+                        <h3>TikTok Viral Likes</h3>
+                        <p>High engagement, fully safe</p>
+                    </div>
+                </div>
+                <div class="deal-price">
+                    <span class="amount">$0.80</span>
+                    <span class="per-k">per 1000</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT FOR AUTOMATED CALCULATIONS -->
+    <script>
+        function updateServiceDetails() {
+            var select = document.getElementById("category");
+            var selectedOption = select.options[select.selectedIndex];
+            
+            var price = selectedOption.getAttribute("data-price");
+            var min = selectedOption.getAttribute("data-min");
+            var max = selectedOption.getAttribute("data-max");
+
+            // Update Text Details
+            document.getElementById("pricePerK").innerText = "$" + price;
+            document.getElementById("minLimit").innerText = Number(min).toLocaleString();
+            document.getElementById("maxLimit").innerText = Number(max).toLocaleString();
+            
+            // Update input attributes
+            document.getElementById("quantity").min = min;
+            
+            calculateTotalPrice();
+        }
+
+        function calculateTotalPrice() {
+            var select = document.getElementById("category");
+            var selectedOption = select.options[select.selectedIndex];
+            var pricePerK = parseFloat(selectedOption.getAttribute("data-price"));
+            
+            var quantity = parseInt(document.getElementById("quantity").value);
+            
+            if (isNaN(quantity) || quantity < 0) {
+                document.getElementById("totalCost").innerText = "$0.00";
+                return;
+            }
+
+            // SMM Panels Formula: (Price per 1K / 1000) * Quantity
+            var total = (pricePerK / 1000) * quantity;
+            document.getElementById("totalCost").innerText = "$" + total.toFixed(2);
+        }
+
+        // Run once on load
+        window.onload = function() {
+            updateServiceDetails();
+        };
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
