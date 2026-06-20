@@ -299,6 +299,30 @@
                         <option value="fb_followers" data-price="310Rs" data-min="500" data-max="200000">Facebook Page Followers / Likes</option>
                         <option value="insta_followers" data-price="280Rs" data-min="100" data-max="300000">Instagram VIP HQ Followers</option>
                         <option value="insta_likes" data-price="90Rs" data-min="50" data-max="500000">Instagram Super Fast Likes</option>
+                   <div class="form-group">
+    <label>Select Poll Option</label>
+    <select id="poll_option" name="poll_option" required>
+        <option value="" disabled selected>Choose Option</option>
+        <option value="A" data-price="2077">Option A - Rs 2077/1000 votes</option>
+        <option value="B" data-price="2077">Option B - Rs 2077/1000 votes</option>
+        <option value="C" data-price="2077">Option C - Rs 2077/1000 votes</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Total Votes</label>
+    <input type="number" id="votes_qty" name="votes_qty" placeholder="1000" value="1000" min="100" step="100" required>
+</div>
+
+<div class="form-group">
+    <label>Total Price</label>
+    <input type="text" id="total_price" value="Rs 2077" readonly style="background: #f5f5f5; font-weight: bold; color: #c2185b;">
+</div>
+
+<script>
+document.getElementById('votes_qty').addEventListener('input', function() {
+    let qty = parseInt(this.value) || 0;
+    let price = Math.round((
                     </select>
                 </div>
 
